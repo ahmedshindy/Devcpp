@@ -1,30 +1,24 @@
-/* deriv_VirtualFunctions.cpp
-// compile with: /EHsc
-#include <iostream>
-using namespace std;
-class player {
+/* / example 2
+#include<iostream> 
+using namespace std; 
+
+class Base 
+{ 
 public: 
-    player (int a) { x=a; }
-    int x=4;
-  virtual  void dispx(){   cout<<" in the base class is: " <<x<<endl;  }
-    
-    };
+	virtual void show() = 0; 
+}; 
 
-
-class wears: public player {
+class Derived: public Base 
+{ 
 public: 
-        wears (int a) { x=a; }
-        void dispx(){   cout<<" in the sub class is: " <<x<<endl;  }
-            
+	void show() { cout << "show is called in Derived \n"; } 
+}; 
 
-    
-    };
-
-
-
-int main() {
-    
-    player p1(88);
-
+int main(void) 
+{ 
+	Base *bp = new Derived();           // heap allocated 
+	bp->show(); 
+    delete bp;
+	return 0; 
 }
 */
